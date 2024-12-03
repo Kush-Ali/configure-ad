@@ -33,7 +33,7 @@
   <li>Next, I created a Windows Server 2022 VM named <strong>DC-1</strong> in the Azure Portal.</li>
   <li>I used the following credentials: Username: <strong>labuser</strong>, Password: <strong>Cyberlab123!</strong>.</li>
   <li>I set DC-1's NIC private IP address to static in the Azure Portal to ensure consistency.</li>
-  <li>Once I logged into the VM, I disabled the Windows Firewall temporarily for testing connectivity purposes.</li>
+  <li>Once I logged into the VM, I disabled the Windows Firewall temporarily for testing connectivity.</li>
 </ul>
 <p align="center">
   <img src="https://github.com/user-attachments/assets/fee5f8dd-c5e0-4483-a8b1-cc29d1944198" alt="Creating Domain Controller" img width="1440"">
@@ -96,7 +96,7 @@
 
 <p><strong>Step 5: Create a Domain Admin User</strong></p>
 <ul>
-  <li>Using Active Directory Users and Computers (ADUC), I created an Organizational Unit (OU) called <strong>_ADMINS</strong>.</li>
+  <li>Using Active Directory, I created an Organizational Unit (OU) called <strong>_ADMINS</strong>.</li>
   <li>I created a new user named <strong>pablo_davis</strong> with the password <strong>Cyberlab123!</strong>, and added her to the <strong>Domain Admins</strong> security group.</li>
   <li>Finally, I logged out and logged back in as <strong>mydomain.com\pablo_davis</strong>, which I will use as my admin account going forward.</li>
 </ul>
@@ -112,7 +112,7 @@
 <ul>
   <li>With Client-1’s DNS settings pointing to DC-1’s private IP address, I restarted the VM and logged in as <strong>labuser</strong>.</li>
   <li>I joined Client-1 to the domain <strong>mydomain.com</strong>, restarted the machine, and verified the successful domain join by logging in.</li>
-  <li>Within ADUC, I created a new OU named <strong>_CLIENTS</strong> and moved Client-1 into it for proper organization.</li>
+  <li>Within AD, I created a new OU named <strong>_CLIENTS</strong> and moved Client-1 into it for proper organization.</li>
 </ul>
 <p align="center">
   <img src="https://github.com/user-attachments/assets/a9887bf2-7648-4ce3-a93e-ac5d4ad8fb6a" alt="Joining Client-1 to Domain" img width="1440"">
@@ -139,7 +139,7 @@
 <p><strong>Step 8: Create Additional Users in Active Directory</strong></p>
 <ul>
   <li>Returning to DC-1, I logged in as <strong>pablo_davis</strong> and opened PowerShell ISE as an administrator to run a script that created multiple user accounts.</li>
-  <li>Once the accounts were created, I observed them in the <strong>_EMPLOYEES</strong> OU within ADUC.</li>
+  <li>Once the accounts were created, I observed them in the <strong>_EMPLOYEES</strong> OU within AD.</li>
   <li>I tested one of the newly created accounts (bam.wed) by logging into Client-1.</li>
 </ul>
 <p align="center">
